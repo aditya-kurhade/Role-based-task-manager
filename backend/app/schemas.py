@@ -15,7 +15,9 @@ class Login(BaseModel):
 class TaskCreate(BaseModel):
     title: str
     description: str
-    assigned_to: int
+    assigned_to: int 
+    Time_stamp: date
+
 
 class TaskUpdate(BaseModel):
     status: str

@@ -28,7 +28,7 @@ def register(data: Register, db: Session = Depends(get_db)):
     user = User(
         name=data.name,
         email=data.email,
-        password=hash_pass(data.password),  # 🔥 IMPORTANT FIX
+        password=hash_pass(data.password),
         role=data.role
     )
 
@@ -37,6 +37,9 @@ def register(data: Register, db: Session = Depends(get_db)):
 
     return {"msg": "User created"}
 
+
+    
+    
 
 # ✅ LOGIN (FIXED)
 @router.post("/auth/login")
@@ -60,9 +63,7 @@ def login(data: Login, db: Session = Depends(get_db)):
 
 # ✅ CREATE TASK
 @router.post("/tasks")
-def create_task(data: TaskCreate,
-                db: Session = Depends(get_db),
-                user=Depends(get_user)):
+def create_task(data: TaskCreate, db: Session = Depends(get_db), user=Depends( )):
 
     if user["role"] != "manager":
         raise HTTPException(403, "Only manager can create")

@@ -15,8 +15,14 @@ class Task(Base):
     __tablename__ = "tasks"
 
     id = Column(Integer, primary_key=True)
-    title = Column(String(100))
+    title = Column(String(100)) 
     description = Column(String(255))
     status = Column(String(20), default="pending")
     assigned_to = Column(Integer, ForeignKey("users.id"))
     created_by = Column(Integer)
+
+class TaskCount(Base):
+    __tablename__ = "taskcount"
+
+    id = Column(Integer)
+    counts = Column(Integer)

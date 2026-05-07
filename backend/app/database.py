@@ -6,4 +6,4 @@ DATABASE_URL = "postgresql://neondb_owner:npg_vwV9c3YFZHCz@ep-late-wildflower-am
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 
-Base = declarative_base()
+Base = declarative_base() 
